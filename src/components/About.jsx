@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import m3 from '../m3.jpg'
 
 export default function About() {
   const containerVariants = {
@@ -43,7 +44,7 @@ export default function About() {
         >
           {/* Left Side - Image Placeholder */}
           <motion.div variants={itemVariants} className="flex justify-center">
-            <img src="/src/m3.jpg" alt="MD Monsur Alam" className="w-64 h-64 sm:w-80 sm:h-80 rounded-2xl object-cover shadow-2xl" />
+            <img src={m3} alt="MD MONSUR ALAM" className="w-64 h-64 sm:w-80 sm:h-80 rounded-2xl object-cover shadow-2xl" />
           </motion.div>
 
           {/* Right Side - Bio */}

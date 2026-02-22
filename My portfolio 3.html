@@ -1,0 +1,126 @@
+import React, { useState } from 'react';
+import { Github, Linkedin, Mail, ExternalLink, Menu, X, Code, Layout, Smartphone } from 'lucide-react';
+
+// --- DATA SECTION (Modify this easily during Viva) ---
+const PORTFOLIO_DATA = {
+  name: "Your Name",
+  role: "Frontend Developer",
+  skills: ["React.js", "JavaScript", "Tailwind CSS", "Git", "Responsive Design"],
+  projects: [
+    { title: "E-Commerce Pro", desc: "A high-performance shopping UI with filtering.", tech: "React & Tailwind" },
+    { title: "Dev Analytics", desc: "Real-time dashboard with interactive charts.", tech: "React & Lucide" },
+    { title: "Social Connect", desc: "Modern social media layout for mobile users.", tech: "Responsive UI" }
+  ]
+};
+
+export default function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  return (
+    <div className="min-h-screen bg-[#F8FAFC] text-[#1E293B] font-sans selection:bg-blue-100 selection:text-primary">
+      
+      {/* 1. NAVBAR (Sticky & Glassmorphism) */}
+      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-slate-100 z-50">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
+          <span className="text-xl font-black tracking-tighter text-primary">PORTFOLIO.</span>
+          
+          <div className="hidden md:flex gap-8 font-medium text-slate-600">
+            {['Home', 'Skills', 'Projects', 'Contact'].map(item => (
+              <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-primary transition">{item}</a>
+            ))}
+          </div>
+
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-slate-600">
+            {isMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
+        
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white border-b px-6 py-4 flex flex-col gap-4">
+            {['Home', 'Skills', 'Projects', 'Contact'].map(item => (
+              <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsMenuOpen(false)} className="font-medium">{item}</a>
+            ))}
+          </div>
+        )}
+      </nav>
+
+      {/* 2. HERO SECTION (UI/UX Mark) */}
+      <section id="home" className="pt-40 pb-20 px-6 max-w-6xl mx-auto text-center">
+        <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 text-sm font-semibold text-primary bg-blue-50 rounded-full border border-blue-100">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+          </span>
+          Open for Projects
+        </div>
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
+          I build <span className="text-primary italic">modern</span> web experiences.
+        </h1>
+        <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed mb-10">
+          Hi, I'm {PORTFOLIO_DATA.name}. I specialize in creating clean, fast, and responsive user interfaces using React.
+        </p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <a href="#projects" className="px-8 py-3 bg-primary text-white font-bold rounded-xl shadow-lg hover:bg-blue-600 transition-all">View My Work</a>
+          <div className="flex gap-3 items-center px-4 py-3 bg-white border rounded-xl">
+             <Github size={20} className="hover:text-primary cursor-pointer" />
+             <Linkedin size={20} className="hover:text-primary cursor-pointer" />
+             <Mail size={20} className="hover:text-primary cursor-pointer" />
+          </div>
+        </div>
+      </section>
+
+      {/* 3. SKILLS SECTION (Responsiveness Mark) */}
+      <section id="skills" className="py-20 bg-slate-900 text-white">
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+          <div className="p-6">
+             <div className="bg-primary/20 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4"><Layout className="text-primary" /></div>
+             <h3 className="text-xl font-bold mb-2">Modern UI</h3>
+             <p className="text-slate-400 text-sm">Clean layouts built with Tailwind CSS.</p>
+          </div>
+          <div className="p-6">
+             <div className="bg-primary/20 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4"><Code className="text-primary" /></div>
+             <h3 className="text-xl font-bold mb-2">Clean Code</h3>
+             <p className="text-slate-400 text-sm">Organized React components and hooks.</p>
+          </div>
+          <div className="p-6">
+             <div className="bg-primary/20 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4"><Smartphone className="text-primary" /></div>
+             <h3 className="text-xl font-bold mb-2">Fully Responsive</h3>
+             <p className="text-slate-400 text-sm">Pixel perfect on every screen size.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. PROJECTS SECTION (Grid Layout) */}
+      <section id="projects" className="py-24 max-w-6xl mx-auto px-6">
+        <h2 className="text-3xl font-black mb-12">FEATURED PROJECTS</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {PORTFOLIO_DATA.projects.map((project, i) => (
+            <div key={i} className="group bg-white border border-slate-100 rounded-3xl p-8 hover:border-primary/50 hover:shadow-2xl transition-all duration-300">
+              <div className="text-xs font-bold text-primary tracking-widest uppercase mb-2">{project.tech}</div>
+              <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">{project.title}</h3>
+              <p className="text-slate-500 mb-6">{project.desc}</p>
+              <div className="flex items-center text-sm font-bold gap-2 cursor-pointer group-hover:translate-x-2 transition-transform">
+                VIEW PROJECT <ExternalLink size={14} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 5. CONTACT SECTION */}
+      <section id="contact" className="py-20 px-6 max-w-3xl mx-auto text-center border-t">
+        <h2 className="text-4xl font-black mb-4">Let's Talk.</h2>
+        <p className="text-slate-500 mb-8 font-medium">Have a project in mind? Reach out and let's build something great.</p>
+        <button className="px-10 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:scale-105 transition-all">
+          hello@yourdomain.com
+        </button>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="py-10 text-center text-slate-400 text-sm">
+        © 2026 {PORTFOLIO_DATA.name} | Built with React & Tailwind
+      </footer>
+    </div>
+  );
+}

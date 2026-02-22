@@ -37,7 +37,7 @@ export default function Header() {
           animate={{ opacity: 1, x: 0 }}
           className="text-2xl font-bold"
         >
-          <span className="text-accent">Dev</span>Portfolio
+          <span className="text-accent">MD MONSUR</span> ALAM
         </motion.div>
 
         {/* Desktop Navigation */}

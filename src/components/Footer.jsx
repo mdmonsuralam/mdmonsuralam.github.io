@@ -16,7 +16,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold mb-2">
-              <span className="text-accent">Dev</span>Portfolio
+              <span className="text-accent">MD MONSUR</span> ALAM
             </h3>
             <p className="text-gray-400 text-sm">Building beautiful digital experiences with modern technology.</p>
           </div>
@@ -82,7 +82,7 @@ export default function Footer() {
           viewport={{ once: true }}
           className="flex flex-col sm:flex-row justify-between items-center text-sm text-gray-400"
         >
-          <p>&copy; {currentYear} My Portfolio. All rights reserved.</p>
+          <p>&copy; {currentYear} MD MONSUR ALAM. All rights reserved.</p>
           <p className="mt-4 sm:mt-0">
             Designed & Built with <span className="text-red-500">❤️</span> using React & Tailwind CSS
           </p>

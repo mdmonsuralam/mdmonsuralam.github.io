@@ -43,9 +43,7 @@ export default function About() {
         >
           {/* Left Side - Image Placeholder */}
           <motion.div variants={itemVariants} className="flex justify-center">
-            <div className="w-64 h-64 sm:w-80 sm:h-80 bg-gradient-to-br from-accent to-blue-700 rounded-2xl flex items-center justify-center shadow-2xl">
-              <span className="text-6xl">👨‍💻</span>
-            </div>
+            <img src="/src/m3.jpg" alt="MD Monsur Alam" className="w-64 h-64 sm:w-80 sm:h-80 rounded-2xl object-cover shadow-2xl" />
           </motion.div>
 
           {/* Right Side - Bio */}

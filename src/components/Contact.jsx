@@ -29,10 +29,10 @@ export default function Contact() {
   }
 
   const contactInfo = [
-    { icon: '📧', label: 'Email', value: 'your.email@example.com', link: 'mailto:your.email@example.com' },
+    { icon: '📧', label: 'Email', value: 'monsuralam0565@gmail.com', link: 'mailto:monsuralam0565@gmail.com' },
     { icon: '💼', label: 'LinkedIn', value: 'linkedin.com/in/yourprofile', link: '#' },
     { icon: '🐙', label: 'GitHub', value: 'github.com/yourprofile', link: '#' },
-    { icon: '📱', label: 'Phone', value: '+1 (123) 456-7890', link: 'tel:+11234567890' },
+    { icon: '📱', label: 'Phone', value: '+8801759468925', link: 'tel:+8801759468925' },
   ]
 
   const containerVariants = {

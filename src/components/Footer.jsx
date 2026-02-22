@@ -55,7 +55,7 @@ export default function Footer() {
               {[
                 { icon: '🐦', label: 'Twitter', link: '#' },
                 { icon: '💼', label: 'LinkedIn', link: '#' },
-                { icon: '🐙', label: 'GitHub', link: '#' },
+                { icon: '🐙', label: 'GitHub', link: 'https://github.com/mdmonsuralam' },
               ].map((social, index) => (
                 <motion.a
                   key={index}
